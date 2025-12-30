@@ -20,6 +20,7 @@ pipeline {
                       sonarsource/sonar-scanner-cli ^
                       -Dsonar.projectKey=ram-sonar ^
                       -Dsonar.projectName=Ram-Sonar ^
+                      -Dsonar.host.url=http://localhost:9000 ^
                       -Dsonar.sources=/usr/src
                     '''
                 }
