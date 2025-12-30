@@ -1,20 +1,26 @@
 pipeline {
     agent any
 
-    tools {
-        sonarScanner 'SonarScanner'
-    }
-
     stages {
 
-        stage('SonarQube Code Analysis') {
+        stage('Clone Git Repository') {
+            steps {
+                git branch: 'main',
+                    credentialsId: 'github-creds',
+                    url: 'https://github.com/stkramanuja-commits/Ram.git'
+            }
+        }
+
+        stage('SonarQube Analysis using Docker') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     bat '''
-                    sonar-scanner ^
-                    -Dsonar.projectKey=ram-sonar ^
-                    -Dsonar.projectName=Ram-Sonar ^
-                    -Dsonar.sources=.
+                    docker run --rm ^
+                      -v "%CD%:/usr/src" ^
+                      sonarsource/sonar-scanner-cli ^
+                      -Dsonar.projectKey=ram-sonar ^
+                      -Dsonar.projectName=Ram-Sonar ^
+                      -Dsonar.sources=/usr/src
                     '''
                 }
             }
