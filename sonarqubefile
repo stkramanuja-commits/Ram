@@ -1,15 +1,11 @@
 pipeline {
     agent any
 
-    stages {
+    tools {
+        sonarScanner 'SonarScanner'
+    }
 
-        stage('Clone Git Repository') {
-            steps {
-                git branch: 'main',
-                    credentialsId: 'github-creds',
-                    url: 'https://github.com/stkramanuja-commits/Ram.git'
-            }
-        }
+    stages {
 
         stage('SonarQube Code Analysis') {
             steps {
