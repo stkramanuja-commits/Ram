@@ -1,24 +1,17 @@
 node {
-
     stage('Checkout Code') {
-    echo 'Cloning code from GitHub'
-    git branch: 'main',
-        url: 'https://github.com/stkramanuja-commits/Ram.git'
-}
+        checkout scm
     }
 
     stage('Build') {
-        echo "Build stage started"
-        sh 'echo Building application'
+        echo "Build stage running"
     }
 
     stage('Test') {
-        echo "Running tests"
-        sh 'echo Running tests'
+        echo "Test stage running"
     }
 
     stage('Deploy') {
-        echo "Deploying application"
-        sh 'echo Deploy successful'
+        echo "Deploy stage running"
     }
 }
