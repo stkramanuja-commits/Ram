@@ -1,0 +1,23 @@
+node {
+
+    stage('Checkout Code') {
+        echo "Cloning code from GitHub"
+        git branch: 'main',
+            url: 'https://github.com/<your-username>/jenkins-scripted-pipeline.git'
+    }
+
+    stage('Build') {
+        echo "Build stage started"
+        sh 'echo Building application'
+    }
+
+    stage('Test') {
+        echo "Running tests"
+        sh 'echo Running tests'
+    }
+
+    stage('Deploy') {
+        echo "Deploying application"
+        sh 'echo Deploy successful'
+    }
+}
