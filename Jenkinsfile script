@@ -5,13 +5,16 @@ node {
 
     stage('Build') {
         echo "Build stage running"
+        sh 'echo Building application'
     }
 
     stage('Test') {
         echo "Test stage running"
+        sh 'echo Running tests'
     }
 
     stage('Deploy') {
         echo "Deploy stage running"
+        sh 'echo Deploying application'
     }
 }
