@@ -1,9 +1,10 @@
 node {
 
     stage('Checkout Code') {
-        echo "Cloning code from GitHub"
-        git branch: 'main',
-            url: 'https://github.com/<your-username>/jenkins-scripted-pipeline.git'
+    echo 'Cloning code from GitHub'
+    git branch: 'main',
+        url: 'https://github.com/stkramanuja-commits/Ram.git'
+}
     }
 
     stage('Build') {
